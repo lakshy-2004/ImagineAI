@@ -37,7 +37,7 @@ const Home = () => {
       setLoading(true)
       setError('')
       try {
-        const res = await fetch('/api/v1/post/get', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/post/get`, {
           headers: { 'Content-Type': 'application/json' },
         })
         if (!res.ok) throw new Error(`Server error ${res.status}`)

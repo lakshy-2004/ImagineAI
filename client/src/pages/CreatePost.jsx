@@ -30,7 +30,7 @@ const CreatePost = () => {
     if (!form.prompt.trim()) { showToast('Please enter a prompt first'); return }
     setGeneratingImg(true)
     try {
-      const res  = await fetch('/api/v1/dalle/text-to-image', {
+      const res  = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/dalle/text-to-image`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: form.prompt }),
@@ -53,7 +53,7 @@ const CreatePost = () => {
     if (!form.photo)         { showToast('Please generate an image first');  return }
     setLoading(true)
     try {
-      const res  = await fetch('/api/v1/post/add', {
+      const res  = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/post/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
